@@ -45,13 +45,3 @@ EndSection
 ```
 
 Orange Pi Zero 2W wiring:
-5V --> VCC & LED
-GND --> GND
-PH4 -->  DC/RS
-SPI1_CS0 --> CS
-SPI1_CS1 --> T_CS
-SPI1_MOSI --> T_DIN & SDI(MOSI)
-SPI1_MISO --> T_DO
-SPI1_CLK --> T_CLK & SCK
-TWI2_SDA/UART3_RX --> RESET
-PI0 --> T_IRQ
