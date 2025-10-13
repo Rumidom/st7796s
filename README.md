@@ -1,4 +1,6 @@
 # Orange pi zero 2 W drivers for IPS 3.5 ST7796U SPI screen 
+[3.5inch_IPS_SPI_Module_ST7796](https://github.com/Rumidom/st7796s/blob/main/600px-MSP3526-2.jpg)
+
 
 https://www.lcdwiki.com/3.5inch_IPS_SPI_Module_ST7796
 
