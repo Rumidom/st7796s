@@ -65,6 +65,7 @@ BEEPER		PL2
 			dc-gpios = <&pio 7 4 0>;     /* PH4 */
 			rotate = <0xB4>;
 			debug = <1>;
+			bgr; 
 	    };
 	};
     };
