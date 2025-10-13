@@ -45,6 +45,7 @@ EndSection
 ```
 
 Orange Pi Zero 2W wiring:
+```
 MOSI      	PH7 SPI1_MOSI
 MISO      	PH8 SPI1_MISO
 CLK       	PH6 SPI1_CLK
@@ -55,3 +56,4 @@ TOUCH_CS  	PH9
 TOUCH_IRQ 	PI15
 LED       	3.3V
 BEEPER		PL2
+```
