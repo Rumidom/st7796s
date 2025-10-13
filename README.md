@@ -1,4 +1,6 @@
-# st7796s
+# Orange pi zero 2 W drivers for IPS 3.5 ST7796U SPI screen 
+
+https://www.lcdwiki.com/3.5inch_IPS_SPI_Module_ST7796
 
 ## Install st7796s drivers for Orange pi zero 2 W
 Install kernel headers
