@@ -63,7 +63,7 @@ BEEPER		PL2
 			buswidth = <8>;
 			reset-gpios = <&pio 8 0 1>;  /* PI0 */
 			dc-gpios = <&pio 7 4 0>;     /* PH4 */
-			rotate = <0x5a>;
+			rotate = <0xB4>;
 			debug = <1>;
 	    };
 	};
