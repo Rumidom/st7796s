@@ -150,6 +150,7 @@ static int init_display(struct fbtft_par *par)
 	write_reg(par, ST7796S_COLMOD, 0x0055);
 
 	write_reg(par, ST7796S_DIC, 0x0001);  
+	write_reg(par, ST7796S_INVON);
 	write_reg(par, ST7796S_EM, 0x00C6);
 
 	write_reg(par, ST7796S_PWR2, 0x0015);
