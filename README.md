@@ -50,10 +50,10 @@ EndSection
 
 Orange Pi Zero 2W wiring:
 ```
-MOSI      	PH7 SPI1_MOSI
-MISO      	PH8 SPI1_MISO
-CLK       	PH6 SPI1_CLK
-TFT_CS    	PH5
-DC        	PH4 
-RST       	PI0
+SDI(MOSI)   PH7 SPI1_MOSI
+SDO(MISO)   PH8 SPI1_MISO
+SCK       	PH6 SPI1_CLK
+LCD_CS    	PH5
+LCD_RS     	PH4 
+LCD_RST     PI0
 ```
