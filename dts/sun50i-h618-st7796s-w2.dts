@@ -8,10 +8,6 @@ CLK       	PH6 SPI1_CLK
 TFT_CS    	PH5
 DC        	PH4 
 RST       	PI0
-TOUCH_CS  	PH9
-TOUCH_IRQ 	PI15
-LED       	3.3V
-BEEPER		PL2
 */
 
 / {
@@ -69,35 +65,6 @@ BEEPER		PL2
             };
 	    };
 	};
-    };
-
-    fragment@1 {
-	target-path = "/soc/spi@5011000";
-	__overlay__ {
-		#address-cells = <1>;
-		#size-cells = <0>;
-		status = "okay";
-			ads7846@0 {
-				compatible = "ti,ads7846";
-				reg = <1>;
-				status = "okay";
-				spi-max-frequency = <1000000>;
-				interrupts = <8 15 2>; /* high-to-low edge triggered */
-				interrupt-parent = <&pio>;   /* PI15 */
-				pendown-gpio = <&pio 8 15 0>;	    
-
-				/* driver defaults, optional */
-
-				ti,keep-vref-on = <1>;
-				ti,x-min = /bits/ 16 <00>;
-				ti,x-max = /bits/ 16 <0xFFF>;
-				ti,y-min = /bits/ 16 <00>;
-				ti,y-max = /bits/ 16 <0xFFF>;
-				ti,x-plate-ohms = /bits/ 16 <60>;
-				ti,pressure-max = /bits/ 16 <255>;
-				ti,swap-xy = <0>;	
-			};
-		};
     };
 
 
