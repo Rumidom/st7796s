@@ -56,8 +56,4 @@ CLK       	PH6 SPI1_CLK
 TFT_CS    	PH5
 DC        	PH4 
 RST       	PI0
-TOUCH_CS  	PH9
-TOUCH_IRQ 	PI15
-LED       	3.3V
-BEEPER		PL2
 ```
