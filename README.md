@@ -5,10 +5,14 @@
 https://www.lcdwiki.com/3.5inch_IPS_SPI_Module_ST7796
 
 ## Install st7796s drivers for Orange pi zero 2 W
+
 Install kernel headers
+
 ```
 sudo dpkg -i /opt/linux-headers*.deb
 ```
+on armbian install header via ```armbian-config```
+
 Then clone repo
 ```
 git clone https://github.com/rumidom/st7796s.git
