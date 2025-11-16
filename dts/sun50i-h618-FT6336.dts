@@ -1,0 +1,48 @@
+// Device tree overlay for FT6336 using Goodix GT9110 kernel driver
+/dts-v1/;
+/plugin/;
+
+/ {
+	fragment@0 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <0xffffffff>;
+			status = "okay";
+		};
+	};
+
+	__fixups__ {
+		i2c1 = "/fragment@0:target:0";
+		i2c1_pi_pins = "/fragment@0/__overlay__:pinctrl-0:0";
+	};
+};
+/ {
+        fragment@1 { 
+                target-path  = "/soc/i2c@5002400";                        // Overlay for I2C pins, using the 'i2c1' node
+                __overlay__ {                            
+                        #address-cells = <1>;
+                        #size-cells = <0>;
+                        status = "okay";                 // device is enabled
+
+                        ft6336: ft6336@38 {                   // set ft6336 with i2c address 0x38
+                                compatible = "focaltech,ft6236"; // using 'goodix' kernel device driver
+                                reg = <0x38>;                 // I2C address (needs to match above)
+                                //pinctrl-names = "default";    // default pin configuration
+                                pinctrl-0 = <&i2c1_pi_pins>;   // SDA PI8 SCL PI7
+                                interrupt-parent = <&pio>;   // assign interrupt rutines
+                                interrupts = <7 3 2>;          // Interupt pin PH3 
+                                //irq-gpios = <&pio 7 3 1>;     // set Interupt pin on PH3
+								reset-gpios = <&pio 7 2 1>;    // set Reset pin on PIO PH2
+                                touchscreen-size-x = <320>;
+                                touchscreen-size-y = <480>;
+								//wakeup-source;
+                                //touchscreen-inverted-x = <0>;
+                                touchscreen-inverted-y = <0>;
+                                touchscreen-swapped-x-y;
+                        };
+                };
+        };
+};
+
