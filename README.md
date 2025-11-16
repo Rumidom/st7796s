@@ -1,8 +1,21 @@
 # Orange pi zero 2 W drivers for IPS 3.5 ST7796U SPI screen 
 <img src="https://github.com/Rumidom/st7796s/blob/main/600px-MSP3526-2.jpg"/>
 
-
 https://www.lcdwiki.com/3.5inch_IPS_SPI_Module_ST7796
+
+Orange Pi Zero 2W wiring:
+```
+SDI(MOSI)   PH7 SPI1_MOSI
+SDO(MISO)   PH8 SPI1_MISO
+SCK       	PH6 SPI1_CLK
+LCD_CS    	PH5
+LCD_RS     	PH4 
+LCD_RST     PI0
+CTP_SCL     PI7
+CTP_RST     PH2
+CTP_SDA     PI8
+CTP_INT     PH3
+```
 
 ## Install st7796s drivers for Orange pi zero 2 W
 
@@ -52,12 +65,20 @@ Section "Device"
 EndSection
 ```
 
-Orange Pi Zero 2W wiring:
+## Install ft6236 drivers for Orange pi zero 2 W
+Build kernel module and install it
 ```
-SDI(MOSI)   PH7 SPI1_MOSI
-SDO(MISO)   PH8 SPI1_MISO
-SCK       	PH6 SPI1_CLK
-LCD_CS    	PH5
-LCD_RS     	PH4 
-LCD_RST     PI0
+cd st7796s/touchscreen_kernel_module/
+make
+sudo make install
+make clean
+sudo depmod -A
+sudo bash -c 'echo "ft6236" >> /etc/initramfs-tools/modules'
+sudo update-initramfs -u
+```
+Then install dts and reboot device.
+```
+cd ../dts/
+sudo orangepi-add-overlay sun50i-h618-FT6336.dts
+sudo reboot
 ```
